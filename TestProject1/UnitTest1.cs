@@ -84,6 +84,16 @@ namespace TestProject1
             var censusException = Assert.Throws<CensusAnalyserException>(() => censusAnalyser.LoadCensusData(wrongHeaderIndianCensusFilePath, Country.INDIA, indianStateCensusHeaders));
             Assert.AreEqual(CensusAnalyserException.ExceptionType.INCORRECT_HEADER, censusException.eType);
         }
+        //TC-2.1
+        [Test]
+        public void GivenIndianStateCodeFile_WhenReaded_ShouldReturnCount()
+        {
+
+            stateRecord = censusAnalyser.LoadCensusData(indianStateCodeFilePath, Country.INDIA, indianStateCodeHeaders);
+            Assert.AreEqual(37, stateRecord.Count);
+        }
+
+
     }
 
 
