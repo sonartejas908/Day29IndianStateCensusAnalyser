@@ -61,6 +61,13 @@ namespace TestProject1
             Assert.AreEqual(CensusAnalyserException.ExceptionType.FILE_NOT_FOUND, censusException.eType);
 
         }
+        //TC-1.3
+        [Test]
+        public void GiventheStateCensusCSVFilewhencorrectbuttypeincorrectReturnsacustomException()
+        {
+            var censusException = Assert.Throws<CensusAnalyserException>(() => censusAnalyser.LoadCensusData(wrongIndianStateCodeFileType, Country.INDIA, indianStateCensusHeaders));
+            Assert.AreEqual(CensusAnalyserException.ExceptionType.INVALID_FILE_TYPE, censusException.eType);
+        }
     }
 
 
