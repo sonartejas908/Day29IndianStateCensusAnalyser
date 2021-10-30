@@ -43,6 +43,14 @@ namespace TestProject1
         {
             Assert.Pass();
         }
+        //TC-1.1
+        [Test]
+        public void GivenIndianCensusDataFile_WhenReaded_ShouldReturnCensusDataCount()
+        {
+
+            totalRecord = censusAnalyser.LoadCensusData(indianStateCensusFilePath, Country.INDIA, indianStateCensusHeaders);
+            Assert.AreEqual(29, totalRecord.Count);
+        }
 
     }
 
